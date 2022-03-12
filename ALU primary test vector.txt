@@ -1,0 +1,45 @@
+A[32]    B[32]    Op[4]    Sa[5] 	C[32] 	V
+
+	#ADD EDGE CASES
+2147483647	19	1010	0	-2147483630	1	#max int (OVERFLOW)
+-2147483648	400	1011	5	-2147483248	0	#min int
+0	0	1010	8	0	0			#zeros
+2147483647	-2147483648	1010	9	-1  	0	#max and min int (NO OVERFLOW)
+
+
+	#SUBTRACT EDGE CASES
+2147483647	19	1110	0	2147483628	0	#max int
+-2147483648	700	1111	5	2147482948	1	#min int (overflow)
+0	0	1110	8	0	0		#zeros
+-2147483648      -13	1111	8	-2147483635	0 #min int
+2147483647	-2147483648	1111	1	-1	1 #max and min int (overflow)
+2147483647	2147483648	1110	1	-1	1 #max and min int (overflow)
+
+	#LESS THAN OR EQUAL TO EDGE CASES
+2147483647	15	0010	0	0	0	#!less than (max int)
+-2147483648	400	0010	5	1	0	#less than (min int)
+0	-65	0010	8	1	0	#zeroes
+
+
+	#GREATER THAN EDGE CASES
+2147483647	15	0011	0	1	0	#greater than (max int)
+-2147483648	400	0011	5	0	0	#!greater than (min int)
+0	-65	0011	8	0	0	#zeroes (!greater than)
+
+	#NOT EQUAL TO EDGE CASES
+2147483647	15	0100	0		1	0	#!Equal to (max int)
+-2147483648	-2147483648	0100	5	0	0	#Equal to (min int)
+34	-2147483648	0100	8		1	0	#!Equal to (min int)	
+2147483647	2147483647	0100	1	0	0	#Equal to (max int)
+0	0	0100	4	0	0	#zeros
+0	2301	0100	4	1	0	#zeros
+
+	#EQUAL TO EDGE CASES
+2147483647	15	0101	0		0	0	#!Equal to (max int)
+-2147483648	-2147483648	0101	5	1	0	#Equal to (min int)
+34	-2147483648	0101	8		0	0	#!Equal to (min int)	
+2147483647	2147483647	0101	1	1	0	#Equal to (max int)
+0	0	0101	4	1	0	#zeros
+0	2301	0101	4	0	0	#zeros
+
+
